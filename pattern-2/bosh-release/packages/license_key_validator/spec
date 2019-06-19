@@ -1,0 +1,8 @@
+---
+name: license_key_validator
+
+dependencies: []
+
+files:
+- license_key_validator/license-validator-1.0.0-jar-with-dependencies.jar
+

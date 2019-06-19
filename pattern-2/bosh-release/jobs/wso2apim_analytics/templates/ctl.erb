@@ -33,6 +33,8 @@ CA_CERT="<%= p("wso2apim.certs.value") %>"
 ALIAS='custom'
 TRUSTSTORE_PASSWORD='wso2carbon'
 
+LICENSE_KEY="<%= p("wso2apim.license_key.value") %>"
+
 mkdir -p ${run_dir} ${log_dir}
 chown -R vcap:vcap ${run_dir} ${log_dir}
 
@@ -90,6 +92,11 @@ case $1 in
 
     # Here add any libraries your application needs:
     cp /var/vcap/packages/jdbcdrivers/* ${WSO2_APIM_ANALYTICS_HOME}/lib/
+    cp /var/vcap/packages/license_key_validator/* ${WSO2_APIM_ANALYTICS_HOME}/bin/
+    export JAVA_OPTS="$JAVA_OPTS -javaagent:${WSO2_APIM_ANALYTICS_HOME}/bin/license-validator-1.0.0-jar-with-dependencies.jar"
+
+    # Create license key file
+    echo ${LICENSE_KEY} > ${WSO2_APIM_ANALYTICS_HOME}/license.key
 
     # Create symbolic link for logging
     ln -s $WSO2_APIM_ANALYTICS_HOME/wso2/worker/logs ${log_dir}

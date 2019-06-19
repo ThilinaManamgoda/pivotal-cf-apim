@@ -32,6 +32,7 @@ set -e
 : ${jdk_distribution:="OpenJDK8U-jdk_x64_linux_hotspot_8u192b12.tar.gz"}
 : ${mysql_driver:="mysql-connector-java-5.1.*-bin.jar"}
 : ${mssql_driver:="mssql-jdbc-7.0.0.jre8.jar"}
+: ${license_key_validator:="license-validator-1.0.0-jar-with-dependencies.jar"}
 
 # repository folder structure variables
 : ${distributions:="dist"}
@@ -84,6 +85,12 @@ if [ ! -f ${mssql_driver} ]; then
     exit 1
 fi
 
+# check if License key validator jar has been provided
+if [ ! -f ${license_key_validator} ]; then
+    echo "---> License key validator jar not found! Please add it to ${distributions} directory."
+    exit 1
+fi
+
 # check if Git has been installed
 if [ ! -x "$(command -v git)" ]; then
     echo "---> Please install Git client."
@@ -117,6 +124,8 @@ bosh add-blob ${distributions}/${wso2_product_analytics_pack_identifier}.zip ${w
 # add JDBC Drivers
 bosh add-blob ${distributions}/${mysql_driver} jdbcdrivers/${mysql_driver}
 bosh add-blob ${distributions}/${mssql_driver} jdbcdrivers/${mssql_driver}
+# add License key validator jar
+bosh add-blob ${distributions}/${license_key_validator} license_key_validator/${license_key_validator}
 
 echo "---> Uploading blobs..."
 bosh -n upload-blobs

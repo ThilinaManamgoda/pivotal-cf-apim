@@ -147,6 +147,14 @@ forms:
     label: These certificates will be trusted by the deployed services
     type: ca_certificate
     configurable: true
+- name: License key
+  label: License key
+  description: License key
+  properties:
+    - name: license_key
+      label: License key for WSO2 subscription
+      type: string
+      configurable: true
 packages:
 - name: routing_release
   type: bosh-release
@@ -189,6 +197,8 @@ packages:
     max_in_flight: 1
     properties:
       wso2apim:
+        license_key:
+          value: (( .properties.license_key.value ))
         certs:
           value: (( .properties.ca_cert.value ))
         analytics_db:
@@ -258,6 +268,8 @@ packages:
     max_in_flight: 1
     properties:
       wso2apim:
+        license_key:
+          value: (( .properties.license_key.value ))
         certs:
           value: (( .properties.ca_cert.value ))
         reg_db:
@@ -318,6 +330,8 @@ packages:
     max_in_flight: 1
     properties:
       wso2apim:
+        license_key:
+          value: (( .properties.license_key.value ))
         certs:
           value: (( .properties.ca_cert.value ))
         reg_db:
@@ -378,6 +392,8 @@ packages:
     max_in_flight: 1
     properties:
       wso2apim:
+        license_key:
+          value: (( .properties.license_key.value ))
         certs:
           value: (( .properties.ca_cert.value ))
         reg_db:

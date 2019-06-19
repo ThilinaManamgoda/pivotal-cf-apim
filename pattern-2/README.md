@@ -163,11 +163,18 @@ The first step in running API Manager on PCF is creating a BOSH release. The fol
     Add the trusted certificate of the domain here.
 
     Click save.
-
-    iv. Return to the **Installation Dashboard** in Ops Manager and click **Review Pending Changes**.
+    
+    iv. License key
+        ![license-key](images/license-key.png "License key")
+    
+    Add the license key here.
+    
+    Click save.
+        
+    v. Return to the **Installation Dashboard** in Ops Manager and click **Review Pending Changes**.
         ![review-changes](images/review-changes.png "Review Pending Changes")
 
-    v. Select the checkbox for API Manager and click **Apply Changes**.
+    vi. Select the checkbox for API Manager and click **Apply Changes**.
         ![apply-changes](images/apply-changes.png "Apply Changes")
 
       The installation process may take around 25 minutes. After the installation is complete, the management console, publisher, and store can be accessed via the following URLs where domain_name refers to the **domain name** of the PCF environment.
