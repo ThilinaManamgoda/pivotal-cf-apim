@@ -153,7 +153,7 @@ forms:
   properties:
     - name: license_key
       label: License key for WSO2 subscription
-      type: string
+      type: text
       configurable: true
 packages:
 - name: routing_release
