@@ -165,7 +165,7 @@ The first step in running API Manager on PCF is creating a BOSH release. The fol
     Click save.
     
     iv. License key
-        ![license-key](images/license-key.png "License key")
+    ![license-key](images/license-key.png "License key")
     
     Add the license key here.
     
