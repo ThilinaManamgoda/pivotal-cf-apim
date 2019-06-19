@@ -18,6 +18,7 @@ packages:
 - jdbcdrivers
 - wso2apim
 - common
+- license_key_validator
 
 provides:
 - name: keymanager
@@ -55,6 +56,9 @@ properties:
 
   wso2apim.certs.value:
     description: Trusted CA certificate
+
+  wso2apim.license_key.value:
+        description: License key
 
   wso2apim.reg_db.jdbc_url:
     description: WSO2 Registry database JDBC URL

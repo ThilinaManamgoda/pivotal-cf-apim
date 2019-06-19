@@ -1,0 +1,13 @@
+# abort script on any command that exit with a non zero value
+set -e
+
+license_key_validator_jar=`echo license_key_validator/license-validator-1.0.0-jar-with-dependencies.jar`
+
+if [[ -f $license_key_validator_jar ]] ; then
+  echo "license key validator driver jar found"
+else
+  echo "license key validator driver jar not found"
+  exit 1
+fi
+
+cp -r $license_key_validator_jar ${BOSH_INSTALL_TARGET}
