@@ -155,6 +155,7 @@ forms:
       label: License key for WSO2 subscription
       type: text
       configurable: true
+
 packages:
 - name: routing_release
   type: bosh-release
